@@ -109,16 +109,22 @@ else
     echo "Download complete. File saved to $TARGET_FILE"
 fi
 
-mkdir -p ../../eval_data/
+if [ ! -d "../../eval_data/" ]; then
+    mkdir -p ../../eval_data/
 
-FILE_URL="https://www.dropbox.com/scl/fo/juh1dk9ltvhghuj0l1sag/h?rlkey=0n2cd5kebzh8slwanjzrfn7q6&dl=1"
-wget -O download.zip "$FILE_URL"
-unzip -n download.zip -d ../../eval_data/  # -n option to not overwrite existing files
-rm download.zip
-FILE_URL="https://www.dropbox.com/scl/fo/o91k6cnwqft84tgmuotwg/h?rlkey=6bnjobvrbqbt4rqt3f1tgaeb8&dl=1"
-wget -O download.zip "$FILE_URL"
-unzip -n download.zip -d ../../eval_data/  # -n option to not overwrite existing files
-rm download.zip
+    FILE_URL="https://www.dropbox.com/scl/fo/juh1dk9ltvhghuj0l1sag/h?rlkey=0n2cd5kebzh8slwanjzrfn7q6&dl=1"
+    wget -O download.zip "$FILE_URL"
+    unzip -n download.zip -d ../../eval_data/  # -n option to not overwrite existing files
+    rm download.zip
+
+    FILE_URL="https://www.dropbox.com/scl/fo/o91k6cnwqft84tgmuotwg/h?rlkey=6bnjobvrbqbt4rqt3f1tgaeb8&dl=1"
+    wget -O download.zip "$FILE_URL"
+    unzip -n download.zip -d ../../eval_data/  # -n option to not overwrite existing files
+    rm download.zip
+else
+    echo "Directory ../../eval_data/ already exists. Skipping download and extraction."
+fi
+
 
 DEST_FILE="../../pretrained_mdls/large-v1.pt"
 
