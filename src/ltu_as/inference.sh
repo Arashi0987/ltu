@@ -133,5 +133,3 @@ if [ ! -f "$DEST_FILE" ]; then
 else
     echo "File already exists: $DEST_FILE"
 fi
-
-python inference_gradio.py
