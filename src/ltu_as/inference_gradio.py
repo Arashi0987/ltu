@@ -53,6 +53,7 @@ eval_mdl_path = '../../pretrained_mdls/ltuas_long_noqa_a6.bin'
 eval_mode = 'joint'
 prompter = Prompter(prompt_template)
 tokenizer = LlamaTokenizer.from_pretrained(base_model)
+print("device = " + device)
 if device == 'cuda':
     model = LlamaForCausalLM.from_pretrained(base_model, device_map="auto", torch_dtype=torch.float16)
 else:
