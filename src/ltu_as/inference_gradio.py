@@ -203,4 +203,4 @@ demo = gr.Interface(fn=predict,
                     "**Please note that the model is under construction and may be buggy. It is trained with some new techniques that are not described in LTU paper. I.e., using method described in LTU paper cannot reproduce this model.**<br>" +
                     "Input should be wav file sampled at 16kHz. This demo trim input audio to 10 seconds."
                     "**Research Demo, No Commercial Use (Due to license of LLaMA).**")
-demo.launch(debug=False, share=True)
+demo.launch(debug=False, share=True, server_name='0.0.0.0')
